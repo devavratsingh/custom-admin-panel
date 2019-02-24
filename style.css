@@ -1,0 +1,44 @@
+
+body {
+	background:linear-gradient(to left, rgb(195,185,177) 0%, rgb(224,211,190) 100%);
+
+}
+.jumbotron {background: linear-gradient(to left, rgba(7,27,82,1) 0%, rgba(0,128,128,1) 100%); /* w3c */}
+.jumbotron h1,.jumbotron p {color: #fff;}
+main.about .jumbotron {background:linear-gradient(to left, rgb(195,185,177) 0%, rgb(224,211,190) 100%);;}
+main.about .jumbotron h1,main.about .jumbotron p {color: #000;}
+@media (min-width: 1400px)
+
+.container {
+    max-width: 1400px;
+}
+
+nav.navbar {
+	margin-top:20px;
+	margin-bottom: 20px;
+	background: linear-gradient(to left, rgba(7,27,82,1) 0%, rgba(0,128,128,1) 100%); /* w3c */
+}
+footer.mastfoot {background: linear-gradient(to left, rgba(7,27,82,1) 0%, rgba(0,128,128,1) 100%); /* w3c */}
+#myCarousel {
+	margin-bottom: 20px;
+	margin-top:20px;
+}
+.carousel-caption {
+	background: linear-gradient(to left, rgba(7,27,82,1) 0%, rgba(0,128,128,1) 100%); /* w3c */
+	padding: 20px;
+	border-radius: 20px;
+	opacity: 0.8;
+}
+.carousel-caption h1, .carousel-caption p {color: #fff; opacity: 1;}
+.carousel-caption a {opacity: 1;}
+.mastfoot p, .mastfoot a {color: #fff;}
+.mastfoot a:hover {color: #cec;}
+picture {width: 290px; height: 100%; border: 5px solid #dee2e6; border-radius: 10px; background: #fff;}
+div.card:hover {
+  transform: scale(1.1); 
+  transition: all .5s;
+}
+div.card {background: linear-gradient(to left, rgba(7,27,82,1) 0%, rgba(0,128,128,1) 100%); /* w3c */}
+div.card a {color: #fff;}
+
+
