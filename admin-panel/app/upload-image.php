@@ -118,7 +118,7 @@ $userid = $user['id'];
                   <img src="<?php echo $rescat['ImagePath']; ?><?php echo $rescat['ImageFileName']; ?>" alt="<?php echo $rescat['product_id']; ?>" class="rounded" width="50px">
               </td>
               <td>
-                <a href="delete/deletepro.php?id=<?php echo $rescat['id']; ?>" class="btn btn-primary">Delete</a>
+                <a href="delete/deleteimage.php?id=<?php echo $rescat['id']; ?>&proid=<?php echo $productid; ?>" class="btn btn-primary">Delete</a>
               </td>
             </tr>
          <?php $i++; } ?>
