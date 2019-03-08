@@ -88,7 +88,7 @@ $result = mysqli_query($conn, "SELECT * FROM users WHERE mr_art_export_username=
             <textarea class="span4 m-wrap form-control" aria-descibedby="categorytextareaHelp" name="description"></textarea>
             <small id="categorytextareaHelp" class="form-text text-muted">Enter the Category Description of your Product.</small>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" name="submitdef" class="btn btn-primary">Submit</button>
         </form>
       </div>
     <div class="col-6 col-md-6 themed-grid-col p-4 shadow">
@@ -99,7 +99,6 @@ $result = mysqli_query($conn, "SELECT * FROM users WHERE mr_art_export_username=
             <tr>
               <th>Sr. No.</th>
               <th>Category</th>
-              <th>Image</th>
               <th>Description</th>
               <th>Actions</th>
             </tr>
@@ -121,30 +120,27 @@ $result = mysqli_query($conn, "SELECT * FROM users WHERE mr_art_export_username=
             <tr>
               <td><?php echo $i; ?></td>
               <td><?php echo $rescat['cat_name']; ?></td>
-              <td>
-                <?php if($getimgres < 1){} else { ?>
-                <img src="<?php echo $getimgres['ImagePath']; ?><?php echo $getimgres['ImageFileName']; ?>" alt="<?php echo $rescat['product_name']; ?>" class="rounded" width="50px">
-                <?php } ?>
-              </td>
               <td><?php echo $rescat['cat_desc']; ?></td>
-              <td><button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#editcategory" data-whatever="@edit">Edit</button><a href="delete/deletecat.php?id=<?php echo $rescat['id']; ?>" class="btn btn-primary">Delete</a>
-                <div class="modal fade" id="editcategory" tabindex="-1" role="form" aria-labelledby="CategoryEditForm" aria-hidden="true">
+              <td><button type="button" class="btn btn-primary mr-2" data-toggle="modal" data-target="#editcategory<?php echo $rescat['id']; ?>" data-whatever="@edit">Edit</button><a href="delete/deletecat.php?id=<?php echo $rescat['id']; ?>" class="btn btn-primary">Delete</a>
+                <div class="modal fade" id="editcategory<?php echo $rescat['id']; ?>" tabindex="-1" role="form" aria-labelledby="CategoryEditForm" aria-hidden="true">
                   <div class="modal-dialog" role="form">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title" id="ExampleModalLabel">Edit Category</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                       </div>
-                      <form method="post">
+                      <form method="post" action="edit/editcat.php">
                         <div class="modal-body">
                             <div class="form-group">
                               <label for="categoryInputName">Category Name</label>
+                              <input type="hidden" name="catid" value="<?php echo $rescat['id']; ?>">
+                              <input type="hidden" name="userid" value="<?php echo $userid; ?>">
                               <input type="text" value="<?php echo $rescat['cat_name']; ?>" class="span4 m-wrap form-control" name="name" required="" aria-describedby="categoryHelp">
                               <small id="categoryHelp" class="form-text text-muted">Enter the Category of your Product.</small>
                             </div>
                             <div class="form-group">
                               <label for="categoryInputName">Image Url</label>
-                              <input type="text" value="<?php echo $rescat['cat_image']; ?>" class="span4 m-wrap form-control" name="name" required="" aria-describedby="categoryHelp">
+                              <input type="text" value="<?php echo $rescat['cat_image']; ?>" class="span4 m-wrap form-control" name="imgurl" required="" aria-describedby="categoryHelp">
                               <small id="categoryHelp" class="form-text text-muted">Enter the Image URL of your Product in this category.</small>
                             </div>
                             <div class="form-group">
@@ -156,7 +152,7 @@ $result = mysqli_query($conn, "SELECT * FROM users WHERE mr_art_export_username=
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-primary">Save</button>
+                          <button type="submit" name="submit1" class="btn btn-primary">Save</button>
                         </div>
                       </form>
                     </div>
